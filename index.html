@@ -7,15 +7,25 @@
   <style>
   
     :root {
-  --logo-size: clamp(60px, 12vw, 200px);
+      --logo-size: clamp(60px, 12vw, 200px);
+      --coffee-brown: #5A3A2C;
+      --coffee: #6d4635;
+      --cream-latte: #c5b7a7;
+      --mocha-tan: #b38967;
+      --caramel: #D7A77B;
+      --espresso-black: #2E1B12;
+      --espresso: #44281b;
+      --foam-white: #F9F5F1;
+      --amber: #c7865a;
     }
+    
     body {
       font-family: Comic-Sans-MS, Comic-Sans, cursive;
-      background: 
-      linear-gradient(to bottom right, rgba(43, 70, 49, 0.2), rgba(87, 139, 104, 0.2)),
-      url('beanmachine_logo2.png') no-repeat center center fixed;
+      background:
+        radial-gradient(circle at center, rgba(58, 42, 30, 0.40), rgba(28, 18, 10, 0.40)),
+        url('beanmachine_logo2.png') no-repeat center center fixed;
       background-size: cover;
-      color: #d2f8da;
+      color: var(--foam-white);
     }
     
     .header-container {
@@ -50,11 +60,14 @@
       font-size: clamp(1.2em, 4vw, 2.5em);
       margin: 0;
       padding: 0.3em 1em;
-      background: linear-gradient(to right, #3a4f3f, #5e7a67);
-      border: 4px solid #212523;
       border-radius: 18px;
+      background: linear-gradient(40deg,
+        var(--coffee-brown) 0%,
+        var(--mocha-tan) 100%);
+      border: 4px solid var(--espresso-black);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-      color: #d2f2cc;
+      color: var(--foam-white);
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
 
       display: inline-flex;           
       align-items: center;       
@@ -62,7 +75,7 @@
 
       width: fit-content;
       min-width: 0;
-      line-height: 1.0;        /* Controls vertical size gently */
+      line-height: 1.0;     
       word-break: break-word;  
       flex: 1 1 auto;
       white-space: nowrap;
@@ -80,14 +93,20 @@
     }
 
     .category h2 {
-      color: #ddfae3;
-      background: linear-gradient(to top, #63866e, #516d58);
+      font-weight: bold;
+      color: var(--foam-white);
+      background: linear-gradient(210deg,
+        var(--mocha-tan) 0%,
+        var(--coffee-brown) 35%,
+        var(--espresso) 70%,
+        var(--espresso-black) 100%);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      border: 4px solid var(--espresso-black);
+      border-radius: 10px;
       padding-bottom: 6px;
       padding-top: 6px;
-      border: 4px solid #212523;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       text-align: center;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
     }
 
     .buttons {
@@ -99,14 +118,18 @@
 
     button.item-button,
     button#clearBtn {
-      background: linear-gradient(to bottom, #63866e, #516d58);
-      border: 3px solid #212523;
+      color: var(--foam-white);
+      background: linear-gradient(125deg,
+        var(--mocha-tan) 0%,
+        var(--coffee) 40%,
+        var(--amber) 75%,
+        var(--espresso) 100%);
+      border: 3px solid var(--espresso-black);
       border-radius: 14px;
       padding-top: 14px;
       padding-bottom: 14px;
       font-size: 15px;
       font-weight: bold;
-      color: #ebe6d4;
       box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
       transition: all 0.2s ease;
       cursor: pointer;
@@ -121,47 +144,54 @@
       white-space: normal;
       max-height: 3.6em;
       max-width: 35em;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
     }
 
     button.item-button:hover,
     button#clearBtn:hover {
-      background: linear-gradient(to bottom, #76957e, #4f6959);
-      transform: scale(1.05);
+      background: linear-gradient(125deg,
+        var(--caramel) 0%,
+        var(--mocha-tan) 78%,
+        var(--amber) 100%);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+      transform: scale(1.05);
     }
 
     .tracker {
-      background-color: #2c3b31;
+      display: flex;
+      background-color: var(--coffee-brown);
       padding: clamp(1em, 4vw, 2em);
-      border-radius: 1.5em;
       margin: clamp(1em, 4vw, 2em) auto;
       width: min(80%, 500px);
       max-height: 90vh;
       overflow-y: auto;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-      border: 3px solid #212523;
-      display: flex;
+      border: 3px solid var(--espresso-black);
+      border-radius: 1.5em;
       flex-direction: column;
       align-items: center;
       gap: clamp(0.5em, 2vw, 0.8em);
       text-align: center;
       font-size: clamp(0.9rem, 2vw, 1.1rem);
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
     }
 
     .tracker h2 {
+      color: var(--foam-white);
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.8);
       font-size: clamp(1.2rem, 3vw, 1.8rem);
       padding: 0.4em;
       margin-bottom: 0.5em;
-      color: #d2f8da;
-      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.8);
-      border-radius: 14px;
+      border-radius: 12px;
+      background-color: var(--espresso);
+      border: 2.5px solid var(--espresso-black);
     }
 
     .tracker label {
       font-weight: bold;
       padding: 0.3em;
       margin-top: 0.2em;
-      color: #ddfae3;
+      color: var(--foam-white);
     }
 
     .tracker input,
@@ -169,19 +199,20 @@
       width: 100%;
       max-width: 400px;
       padding: clamp(0.5em, 1.5vw, 1em);
-      border-radius: 12px;
-      border: 3px solid #212523;
-      background-color: #3b4e41;
-      color: #d2f8da;
+      border-radius: 14px;
+      border: 2.5px solid var(--espresso-black);
+      background-color: var(--coffee);
+      color: var(--foam-white);
       font-size: clamp(0.9rem, 2vw, 1.1rem);
       text-align: center;
+      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.8);
     }
 
     #orderSummary {
       width: 100%;
       max-width: 400px;
       padding: 0.5em;
-      background: rgba(255, 255, 255, 0.03);
+      background-color: var(--coffee-brown);
       border-radius: 10px;
       text-align: center;
     }
@@ -199,7 +230,7 @@
       font-size: clamp(1rem, 2vw, 1.2rem);
       font-weight: bold;
       margin-top: 0.5em;
-      color: #e9ffe6;
+      color: var(--foam-white);
     }
 
     .modal-overlay {
@@ -208,7 +239,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(20, 30, 20, 0.85);
+      background: rgba(30, 26, 20, 0.85);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -221,21 +252,46 @@
     }
 
     .modal-content {
-      background-color: #2c3b31;
-      border: 3px solid #516d58;
+      color: var(--foam-white);
+      background-color: var(--coffee-brown);
+      border: 3px solid var(--espresso-black);
       padding: 2em;
       border-radius: 16px;
-      color: #d2f8da;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.8);
       text-align: center;
       width: 90%;
+      height: fit-content;
       max-width: 400px;
       cursor: default;
+      align-items: center;
     }
 
     .modal-content h3 {
       margin-top: 0;
+      align-items: center;
       overflow: hidden;
+      font-size: 1.5em;
+      border-radius: 14px;
+      background-color: var(--espresso);
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.8);
+      width: 60%;
+      max-width: 300px;
+      margin: 0 auto;
+      text-align: center;
+      padding-bottom: 2px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+      border: 2.5px solid var(--espresso-black);
+    }
+
+    .input-wrapper {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      border-radius: 12px;
+      width: 45%;
+      background-color: rgba(90, 58, 44, 0.25); /* soft brown */
+      backdrop-filter: blur(6px); /* optional: remove if not wanted */
+      align-items: center;
     }
 
     input[type="number"] {
@@ -258,9 +314,10 @@
       text-align: center;
       margin: 1em 0;
       border-radius: 8px;
-      border: 2px solid #5e7a67;
-      background-color: #3b4e41;
-      color: #d2f8da;
+      border: 2.5px solid var(--espresso-black);
+      background-color: var(--espresso-black);
+      color: var(--foam-white);
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
     }
 
     .modal-buttons {
@@ -270,15 +327,19 @@
     }
 
     .modal-buttons button {
-      background: linear-gradient(to bottom, #63866e, #516d58);
-      border: 2px solid #212523;
+      color: var(--foam-white);
+      background: linear-gradient(125deg,
+        var(--mocha-tan) 0%,
+        var(--coffee) 40%,
+        var(--amber) 75%,
+        var(--espresso) 100%);
+      border: 2.5px solid var(--espresso-black);
       border-radius: 14px;
       padding-top: 10px;
       padding-bottom: 10px;
       font-size: 15px;
       font-weight: bold;
-      color: #ebe6d4;
-      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.8);
       transition: all 0.2s ease;
       cursor: pointer;
       display: -webkit-box;
@@ -293,10 +354,14 @@
       max-height: 3.6em;
       max-width: 35em;
       transition: all 0.2s ease;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
     }
 
     .modal-buttons button:hover {
-      background: linear-gradient(to bottom, #76957e, #4f6959);
+      background: linear-gradient(125deg,
+        var(--caramel) 0%,
+        var(--mocha-tan) 78%,
+        var(--amber) 100%);
       transform: scale(1.05);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
     }
@@ -417,9 +482,11 @@
 
 <div id="quantityModal" class="modal-overlay">
   <div class="modal-content">
-    <h3>Add Item Quantity</h3>
-    <p id="modalItemName">Item Name</p>
-    <input type="number" id="quantityInput" value="1" min="1" />
+    <h3 id="modalItemName">Item Name</h3>
+  
+    <div class="input-wrapper">
+      <input type="number" id="quantityInput" placeholder="Qty" />
+    </div>
     <div class="modal-buttons">
       <button type="button" onclick="confirmQuantity()">Add</button>
       <button type="button" onclick="closeModal()">Cancel</button>
