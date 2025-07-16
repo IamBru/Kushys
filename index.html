@@ -7,65 +7,64 @@
   <style>
   
     :root {
-  --logo-size: clamp(40px, 11em, 250px);
+  --logo-size: clamp(60px, 12vw, 200px);
     }
     body {
-      font-family: Arial, sans-serif;
+      font-family: Comic-Sans-MS, Comic-Sans, cursive;
       background: 
       linear-gradient(to bottom right, rgba(43, 70, 49, 0.2), rgba(87, 139, 104, 0.2)),
       url('beanmachine_logo2.png') no-repeat center center fixed;
       background-size: cover;
       color: #d2f8da;
-      padding: 20px;
     }
     
     .header-container {
+      position: relative;
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 2em;
-      gap: clamp(0.2em, 5vw, 6em);
+      justify-content: space-between;
       flex-wrap: nowrap;
-      margin-bottom: clamp(1em, calc(var(--logo-size) * 1.5), 2em); /* Dynamically linked margin */
+      padding: 2em;
+      gap: clamp(0.5em, 5vw, 4em);
+      margin-bottom: clamp(1em, calc(var(--logo-size) * 1.2), 2em);
     }
 
     .corner-logo {
-      height: clamp(40px, 8vw, 250px);
+      height: var(--logo-size);
       width: auto;
-      flex-shrink: 1;
-      transform: translateY(-0.5em);
-      z-index: 1000;
+      flex-shrink: 2; 
+      max-width: 18vw;
+      opacity: 0.85;
+      transition: all 0.3s ease;
     }
 
     .corner-logo.left {
-      left: 1.5vw;
+      left: clamp(10px, 3vw, 30px);
     }
 
     .corner-logo.right {
-      right: 1.5vw;
+      right: clamp(10px, 3vw, 30px);
     }
 
     h1 {
-      font-size: 2.5em; /* Scales with logo size */
+      font-size: clamp(1.2em, 4vw, 2.5em);
       margin: 0;
       padding: 0.3em 1em;
-      font-size: clamp(1.2em, 4vw, 2.5em);
       background: linear-gradient(to right, #3a4f3f, #5e7a67);
-      border: 3px solid #212523;
+      border: 4px solid #212523;
       border-radius: 18px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       color: #d2f2cc;
 
-      display: inline-flex;             /* 🔑 Turn into flex container */
-      align-items: center;       /* 🔑 Vertically center text */
-      justify-content: center;   /* Horizontally center (optional for extra safety) */
+      display: inline-flex;           
+      align-items: center;       
+      justify-content: center;   
 
       width: fit-content;
-      max-width: 100%;
+      min-width: 0;
       line-height: 1.0;        /* Controls vertical size gently */
-      word-break: break-word;  /* Prevents weird overflow */
+      word-break: break-word;  
       flex: 1 1 auto;
-      flex-shrink: 1; /* allows it to scale down if needed */
       white-space: nowrap;
       max-width: 100%;
       overflow-x: auto;
@@ -74,7 +73,7 @@
     }
 
     .category {
-      margin-bottom: 25px;
+      margin-bottom: 125px;
       margin-left: clamp(2px, 5vw, 200px);
       margin-right: clamp(2px, 5vw, 200px);
       padding: 0 22px;
@@ -83,9 +82,9 @@
     .category h2 {
       color: #ddfae3;
       background: linear-gradient(to top, #63866e, #516d58);
-      padding-bottom: 3px;
-      padding-top: 3px;
-      border: 3px solid #212523;
+      padding-bottom: 6px;
+      padding-top: 6px;
+      border: 4px solid #212523;
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       text-align: center;
@@ -94,17 +93,17 @@
     .buttons {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 10px;
+      gap: 16px;
       margin-top: auto;
     }
 
     button.item-button,
     button#clearBtn {
       background: linear-gradient(to bottom, #63866e, #516d58);
-      border: 2px solid #212523;
+      border: 3px solid #212523;
       border-radius: 14px;
-      padding-top: 8px;
-      padding-bottom: 8px;
+      padding-top: 14px;
+      padding-bottom: 14px;
       font-size: 15px;
       font-weight: bold;
       color: #ebe6d4;
@@ -121,89 +120,197 @@
       text-overflow: ellipsis;
       white-space: normal;
       max-height: 3.6em;
+      max-width: 35em;
     }
 
     button.item-button:hover,
     button#clearBtn:hover {
       background: linear-gradient(to bottom, #76957e, #4f6959);
       transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-    }
-
-    button#clearBtn {
-      background: linear-gradient(to bottom, #a84f4f, #843d3d);
-      border-color: #dd8b8b;
-      color: #fff0f0;
-      margin-top: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
     }
 
     .tracker {
       background-color: #2c3b31;
-      padding: 30px;
-      border-radius: 16px;
-      margin: 25px auto;
-      width: 90%;
-      max-width: 600px;
-      max-height: 600px;
+      padding: clamp(1em, 4vw, 2em);
+      border-radius: 1.5em;
+      margin: clamp(1em, 4vw, 2em) auto;
+      width: min(80%, 500px);
+      max-height: 90vh;
       overflow-y: auto;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-      border: 2px solid #77aa77;
-      font-size: 16px;
+      border: 3px solid #212523;
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: clamp(0.5em, 2vw, 0.8em);
       text-align: center;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+    }
+
+    .tracker h2 {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      padding: 0.4em;
+      margin-bottom: 0.5em;
+      color: #d2f8da;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.8);
+      border-radius: 14px;
+    }
+
+    .tracker label {
+      font-weight: bold;
+      padding: 0.3em;
+      margin-top: 0.2em;
+      color: #ddfae3;
     }
 
     .tracker input,
     .tracker textarea {
       width: 100%;
       max-width: 400px;
+      padding: clamp(0.5em, 1.5vw, 1em);
+      border-radius: 12px;
+      border: 3px solid #212523;
+      background-color: #3b4e41;
+      color: #d2f8da;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
       text-align: center;
     }
 
     #orderSummary {
       width: 100%;
       max-width: 400px;
-      margin-top: 10px;
-      text-align: left;
+      padding: 0.5em;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 10px;
+      text-align: center;
     }
 
     #copyOutput {
       resize: none;
       width: 100%;
       max-width: 400px;
-      height: 120px;
+      height: clamp(100px, 20vh, 160px);
       text-align: left;
-    }
-
-    textarea {
-      height: 190px;
+      padding: 0.5em;
     }
 
     .total {
-      font-size: 18px;
+      font-size: clamp(1rem, 2vw, 1.2rem);
       font-weight: bold;
-      margin-top: 10px;
+      margin-top: 0.5em;
+      color: #e9ffe6;
     }
 
-  .corner-logo {
-    height: clamp(40px, 10vw, 250px);
-    width: auto;
-    flex-shrink: 0;
-    transform: translateY(-0.5em);
-    transform: translateY(-0.5em);
-    z-index: 1000;
-  }
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(20, 30, 20, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .modal-content {
+      background-color: #2c3b31;
+      border: 3px solid #516d58;
+      padding: 2em;
+      border-radius: 16px;
+      color: #d2f8da;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      cursor: default;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+      overflow: hidden;
+    }
+
+    input[type="number"] {
+      -webkit-appearance: none; /* Chrome, Safari */
+      -moz-appearance: textfield; /* Firefox */
+      appearance: none; /* Standard */
+    }
+
+    /* Optional: removes leftover spinners in some older WebKit browsers */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .modal-content input[type="number"] {
+      width: 80px;
+      padding: 6px;
+      font-size: 1.2em;
+      text-align: center;
+      margin: 1em 0;
+      border-radius: 8px;
+      border: 2px solid #5e7a67;
+      background-color: #3b4e41;
+      color: #d2f8da;
+    }
+
+    .modal-buttons {
+      display: flex;
+      justify-content: space-around;
+      gap: 1em;
+    }
+
+    .modal-buttons button {
+      background: linear-gradient(to bottom, #63866e, #516d58);
+      border: 2px solid #212523;
+      border-radius: 14px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 15px;
+      font-weight: bold;
+      color: #ebe6d4;
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: -webkit-box;
+      display: box;
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      max-height: 3.6em;
+      max-width: 35em;
+      transition: all 0.2s ease;
+    }
+
+    .modal-buttons button:hover {
+      background: linear-gradient(to bottom, #76957e, #4f6959);
+      transform: scale(1.05);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    .modal-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
 
   @media (max-width: 900px) {
   .category {
-    margin-left: 2px;
-    margin-right: 2px;
-  }
-  body {
-    padding: 10px;
-    font-size: 14px;
+    margin-left: 1px;
+    margin-right: 1px;
   }
   .buttons {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* ⬅ wider buttons */
@@ -216,16 +323,17 @@
     line-height: 1.2;
     min-height: 50px; /* ⬅ consistent size for 2 lines */
   }
-  input,
-  textarea {
-    font-size: 14px;
-    padding: 8px;
+  .modal-overlay {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
-  .tracker {
-    padding: 15px;
-  }
-  .total {
-    font-size: 16px;
+
+  .modal-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
   }
 }
   </style>
@@ -286,7 +394,6 @@
       <button class="item-button" data-name="Bean Machine Combo" data-price="1500">Bean Machine Combo - 1500$</button>
     </div>
   </div>
-
 </div>
 
 <div class="tracker">
@@ -308,21 +415,24 @@
   <button id="clearBtn" onclick="clearAll()">Clear All</button>
 </div>
 
+<div id="quantityModal" class="modal-overlay">
+  <div class="modal-content">
+    <h3>Add Item Quantity</h3>
+    <p id="modalItemName">Item Name</p>
+    <input type="number" id="quantityInput" value="1" min="1" />
+    <div class="modal-buttons">
+      <button type="button" onclick="confirmQuantity()">Add</button>
+      <button type="button" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <script>
   let order = [];
   let total = 0;
   let latestCopyText = "";
-
-  function addItem(name, price) {
-    const existing = order.find(item => item.name === name);
-    if (existing) {
-      existing.qty = (existing.qty || 1) + 1;
-    } else {
-      order.push({ name, price, qty: 1 });
-    }
-    total += price;
-    updateOrder();
-  }
+  let modalItem = null;
+  let modalPrice = 0;
 
   function removeItemByName(e, name, price) {
     e.preventDefault();
@@ -380,19 +490,73 @@
     navigator.clipboard.writeText(latestCopyText);
   }
 
+  function openQuantityModal(name, price) {
+    modalItem = name;
+    modalPrice = price;
+
+    document.getElementById("modalItemName").textContent = name;
+    document.getElementById("quantityInput").value = 1;
+
+    const modal = document.getElementById("quantityModal");
+    modal.classList.add("show");
+    document.getElementById("quantityInput").focus();
+  }
+
+  function closeModal() {
+    const modal = document.getElementById("quantityModal");
+    modal.classList.remove("show");
+  }
+
+  function confirmQuantity() {
+    let qty = parseInt(document.getElementById("quantityInput").value);
+    if (isNaN(qty) || qty <= 0) {
+      alert("Please enter a valid quantity.");
+      return;
+    }
+
+    const existing = order.find(item => item.name === modalItem);
+    if (existing) {
+      existing.qty = (existing.qty || 1) + qty;
+    } else {
+      order.push({ name: modalItem, price: modalPrice, qty });
+    }
+
+    total += modalPrice * qty;
+    updateOrder();
+    closeModal();
+  }
+
+  document.addEventListener("keydown", function (e) {
+    const modal = document.getElementById("quantityModal");
+    if (!modal.classList.contains("show")) return;
+
+    if (e.key === "Escape") {
+      closeModal();
+    }
+    if (e.key === "Enter") {
+      confirmQuantity();
+    }
+  });
+
   document.querySelectorAll('.item-button').forEach(button => {
     const name = button.dataset.name;
     const price = parseFloat(button.dataset.price);
 
     button.setAttribute('title', button.textContent.trim());
-    button.addEventListener('click', () => addItem(name, price));
+    button.addEventListener('click', () => openQuantityModal(name, price));
     button.addEventListener('contextmenu', e => removeItemByName(e, name, price));
+  });
+
+  document.getElementById("quantityModal").addEventListener("click", function (e) {
+    // Only close if the user clicks directly on the overlay (not inside the modal content)
+    if (e.target === this) {
+      closeModal();
+    }
   });
 
   document.getElementById("customerName").addEventListener("input", updateOrder);
   document.getElementById("employeeName").addEventListener("input", updateOrder);
   document.getElementById("notes").addEventListener("input", updateOrder);
 </script>
-
 </body>
 </html>
