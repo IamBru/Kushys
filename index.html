@@ -111,9 +111,27 @@
 
     .buttons {
       display: grid;
+      flex-wrap: wrap;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      justify-content: center;
       gap: 16px;
       margin-top: auto;
+    }
+
+    .buttons.few-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      flex: 1 1 clamp(160px, 25%, 240px);
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .few-items button {
+      flex: 1 1 clamp(160px, 25%, 240px);
+      max-width: 100%;
+      box-sizing: border-box;
     }
 
     button.item-button,
@@ -458,6 +476,7 @@
     <h2>Combos</h2>
     <div class="buttons">
       <button class="item-button" data-name="Bean Machine Combo" data-price="1500">Bean Machine Combo - 1500$</button>
+      <button class="item-button" data-name="10 & 10 Combo" data-price="1000">10 & 10 Combo - 1000$</button>
     </div>
   </div>
 </div>
@@ -620,6 +639,15 @@
     if (e.target === this) {
       closeModal();
     }
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.buttons').forEach(container => {
+      const buttonCount = container.querySelectorAll('button').length;
+      if (buttonCount <= 2) {
+        container.classList.add('few-items');
+      }
+    });
   });
 
   document.getElementById("customerName").addEventListener("input", updateOrder);
